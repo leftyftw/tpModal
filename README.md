@@ -17,6 +17,7 @@
 2. Add it to your app `angular.module('MyCoolApp', ['ui.bootstrap', 'torresPub'])`
 3. Inject the service in your directive/controller `angular.module('MyCoolApp').controller('MyAwesomeController', function($scope, tpModal) { });`
 4. Use tpModal to display a dialog
+
    ```javascript
    //Display a message with no title
    tpModal.show('Hello World!');
