@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet prefetch" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+
+
+<div ng-app="testApp">
+
+    <div ng-controller="MainCtrl">
+        <button type="button" class="btn btn-default" ng-click="runAwesome()">Run something awesome!</button>
+        <button type="button" class="btn btn-default" ng-click="runSimple()">Run something simple!</button>
+        <button type="button" class="btn btn-default" ng-click="runEasy()">Run something easy!</button>
+    </div>
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.js"></script>
+<script src="tpModal.js"></script>
+
+<script>
+
+    angular.module('testApp', ['torresPub']);
+
+    angular.module('testApp').controller('MainCtrl', function ($scope, $log, tpModal) {
+
+        $scope.runAwesome = function () {
+            $scope.showMessage('This is an awesome popup!');
+        };
+
+        $scope.runSimple = function () {
+            tpModal.show('Simple popup');
+        };
+
+        $scope.runEasy = function () {
+            tpModal.show({message: 'Easy Popup', title: 'Easy'});
+        };
+
+        var logOkay = function () {
+            $log.debug('okay');
+        };
+
+        var logCancel = function () {
+            $log.debug('cancelled');
+        };
+
+        $scope.showMessage = function (message) {
+            tpModal.show({
+                message: message,
+                title: 'Notification',
+                okayCallback: logOkay,
+                okayLabel: 'Thanks!',
+                cancelLabel: 'Oops!',
+                cancelCallback: logCancel
+            });
+        };
+
+
+    });
+</script>
+
+</body>
+</html>
