@@ -6,7 +6,7 @@
 0.1
 
 ##Demo
-- Demo can be found at http://gitbut.com/leftyftw/tpModal/example.html
+- Demo can be found at https://github.com/leftyftw/tpModal/blob/master/example.html
 
 
 ## Quick  Start
